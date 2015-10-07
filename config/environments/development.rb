@@ -16,6 +16,7 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -39,4 +40,14 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # Omniauth Key
+  
+  # Facebook
+  ENV['FB_APP_ID'] = "778238925635445"
+  ENV['FB_APP_SECRET'] = "4d996bac958dc8cf0c013a545a246d30"
+
+  #Google
+  ENV["GOOGLE_CLIENT_ID"] = ""
+  ENV["GOOGLE_CLIENT_SECRET"] = ""
 end

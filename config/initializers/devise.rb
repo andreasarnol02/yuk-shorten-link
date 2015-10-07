@@ -7,6 +7,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '0b21d3f7104667dd3d6223b461274ec32878958fa2a04d9a15e1cc86f3ecc2a6ba7386627fb09769cab5aa24690fc38f9fa88481eb7290cbb3d4dd7eecf690f0'
+  config.secret_key = 'd3c68deeeae438e3d87891d78fa7b571b044efcee726033020bb34e8ea64a0fd6720dadc3433e8d499b75081e0fe9e7706fc293b2066afa7d50b16cd8d209c21'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -262,4 +263,16 @@ Devise.setup do |config|
   # When using OmniAuth, Devise cannot automatically set OmniAuth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+
+  config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], {
+    scope: "email", 
+    image_size: "large", secure_image_url: true, :strategy_class => OmniAuth::Strategies::Facebook, 
+    :info_fields => 'email, about, gender, locale, timezone, name'
+  }
+
+  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], {
+    :scope => "email, profile, plus.me",
+    :image_aspect_ratio => "square",
+    :image_size => 50
+  }
 end

@@ -1,3 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root "home#index"
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+  namespace :users do
+    resources :connects, only: :index do
+      collection do 
+        get "approve"
+      end
+    end
+  end
 end

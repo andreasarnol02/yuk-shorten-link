@@ -39,6 +39,10 @@ gem 'friendly_id'
 gem 'kaminari'
 # Meta SEO
 gem 'meta-tags'
+# Omniauth
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -67,3 +71,7 @@ group :development do
   gem "letter_opener"
 end
 
+
+group :production do
+  gem 'rails_12factor'
+end

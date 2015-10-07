@@ -1,0 +1,2 @@
+module Users::ConnectsHelper
+end
