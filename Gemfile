@@ -63,5 +63,7 @@ group :development do
   gem 'spring'
   # Disable asset log
   gem 'quiet_assets'
+  #Letter opener for email
+  gem "letter_opener"
 end
 
