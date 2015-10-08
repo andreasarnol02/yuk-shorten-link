@@ -270,7 +270,7 @@ Devise.setup do |config|
     :info_fields => 'email, about, gender, locale, timezone, name'
   }
 
-  config.omniauth :google_oauth2, Settings.social_network.google.app_id, Settings.social_network.google.app_id, {
+  config.omniauth :google_oauth2, Settings.social_network.google.app_id, Settings.social_network.google.key, {
     :scope => "email, profile, plus.me",
     :image_aspect_ratio => "square",
     :image_size => 50

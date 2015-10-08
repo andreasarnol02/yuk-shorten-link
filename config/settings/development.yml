@@ -1,3 +1,6 @@
+secret_key_base:
+  key: ""
+
 social_network:
   facebook:
     app_id: "778238925635445"
