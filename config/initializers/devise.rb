@@ -264,13 +264,13 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
-  config.omniauth :facebook, ENV['FB_APP_ID'], ENV['FB_APP_SECRET'], {
+  config.omniauth :facebook, Settings.social_network.facebook.app_id, Settings.social_network.facebook.key, {
     scope: "email", 
     image_size: "large", secure_image_url: true, :strategy_class => OmniAuth::Strategies::Facebook, 
     :info_fields => 'email, about, gender, locale, timezone, name'
   }
 
-  config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], {
+  config.omniauth :google_oauth2, Settings.social_network.google.app_id, Settings.social_network.google.app_id, {
     :scope => "email, profile, plus.me",
     :image_aspect_ratio => "square",
     :image_size => 50

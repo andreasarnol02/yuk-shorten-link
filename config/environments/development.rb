@@ -40,14 +40,4 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-
-  # Omniauth Key
-  
-  # Facebook
-  ENV['FB_APP_ID'] = "778238925635445"
-  ENV['FB_APP_SECRET'] = "4d996bac958dc8cf0c013a545a246d30"
-
-  #Google
-  ENV["GOOGLE_CLIENT_ID"] = "781725990897-kdde49o0v6qunonll7443gedg63g54kn.apps.googleusercontent.com"
-  ENV["GOOGLE_CLIENT_SECRET"] = "NdY0YU9iNiL17h1ngan5hCnU"
 end
