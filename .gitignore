@@ -17,3 +17,5 @@
 
 # IGNORE SCHEMA
 /db/schema.rb
+
+/public/assets

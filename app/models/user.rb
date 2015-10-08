@@ -20,4 +20,12 @@ class User < ActiveRecord::Base
       user.authentications.build(uid: auth.uid, provider: auth.provider)
     end
   end
+
+  def already_connected(provider)
+    authentications.where(provider: provider)
+  end
+
+  def connect_account(uid, provider)
+    authentications.create(uid: uid, provider: provider)
+  end
 end

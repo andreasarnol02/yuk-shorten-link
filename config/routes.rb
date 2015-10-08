@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :connects, only: :index do
       collection do 
         get "approve"
+        delete "unconnect"
       end
     end
   end
