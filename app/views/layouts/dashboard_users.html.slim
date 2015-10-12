@@ -4,8 +4,8 @@ html lang="en"
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1"
-    = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag    'dashboard/application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'dashboard/application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   BODY    
     header
@@ -18,7 +18,7 @@ html lang="en"
               span.icon-bar
               span.icon-bar
               span.icon-bar
-            = link_to "Yuk!", root_path, class: "navbar-brand"
+            = link_to "Yuk!", dashboard_path, class: "navbar-brand"
           /! Collect the nav links, forms, and other content for toggling
           #bs-example-navbar-collapse-1.collapse.navbar-collapse
             ul.nav.navbar-nav
@@ -41,4 +41,8 @@ html lang="en"
       section
         = render 'layouts/partials/short_link_form'
       section
-        = yield
+        .col-md-2
+          ul
+            li = link_to "My Links", dashboard_my_links_path
+        .col-md-10
+          = yield

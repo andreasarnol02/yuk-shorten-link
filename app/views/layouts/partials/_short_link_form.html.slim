@@ -1,0 +1,16 @@
+= simple_form_for :url, url: urls_path, method: :post, remote: true do |f|
+  .form-group.col-md-12
+    .text-center
+      .col-md-6
+        = radio_button("url", "type_url", "default", checked: true)
+        |  Default
+      .col-md-6
+        = radio_button("url", "type_url", "custom")
+        |  Custom
+  .form-group
+    .col-md-12
+      .form-inputs.col-md-6
+        = f.input :url, label: false, placeholder: "Put your destination URL here. ex: http://google.com"
+      .form-inputs.type
+      .form-action.col-md-6#btn-short-url
+        = f.submit "Create Short URL", class: "btn btn-default btn-sm"

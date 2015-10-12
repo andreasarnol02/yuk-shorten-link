@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
   has_many :authentications, dependent: :destroy
+  has_many :urls
 
   def self.from_omniauth(auth)
     joins(:authentications).where(authentications: { provider: auth.provider, uid: auth.uid }).first_or_create do |user|
