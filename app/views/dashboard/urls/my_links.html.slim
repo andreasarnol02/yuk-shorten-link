@@ -1,18 +1,16 @@
-
-
 table.table
-	tr
-		th Destination
-		th Short URL
-		th Action
+  tr
+    th Destination
+    th Short URL
+    th Action
 
-	- @my_links.each do |link|
-		tr
-			td class="link-url-#{link.id}"
-				= link_to link.url, link.url, target: "_blank"
-			td class="shorten-#{link.id}"
-				= link_to "#{request.base_url}/#{link.shorten}", "#{request.base_url}/#{link.shorten}", target: "_blank"
-			td class="action-button-#{link.id}"
-				= link_to "Edit", "javascript:void(0);", data: { id: link.id }, class: "btn btn-edit-shorten edit-shorten-#{link.id}"
-				span | 
-				= link_to "Delete", link, data: { confirm: "Do you wish to delete this Short URL?" }, method: :delete, remote: true
+  - @my_links.each do |link|
+    tr class="row-link-#{link.id}"
+      td class="link-url-#{link.id}"
+        = link_to link.url, link.url, target: "_blank"
+      td class="shorten-#{link.id}"
+        = link_to "#{request.base_url}/#{link.shorten}", "#{request.base_url}/#{link.shorten}", target: "_blank"
+      td class="action-button-#{link.id}"
+        = link_to "Edit", "javascript:void(0);", data: { id: link.id }, class: "btn btn-edit-shorten edit-shorten-#{link.id}"
+        span | 
+        = link_to "Delete", link, data: { confirm: "Do you wish to delete this Short URL?" }, method: :delete, remote: true

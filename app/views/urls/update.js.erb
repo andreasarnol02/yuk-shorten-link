@@ -1,0 +1,30 @@
+id = <%= @url.id %>
+
+<% if @url.errors.present? %>
+  <% if @url.errors.messages[:url].present? %>
+    $(".link-url-" + id + " input").addClass("error-form")
+    $(".link-url-" + id + " .text").text("Should be a valid URL!")
+    $(".link-url-" + id + " .text").addClass("error-text")
+  <% else %>
+    $(".link-url-" + id + " .text").removeClass("error-text")  
+    $(".link-url-" + id + " input").removeClass("error-form")
+    $(".link-url-" + id + " .text").text("")
+  <% end %>
+
+  <% if @url.errors.messages[:shorten].present? %>
+    $(".shorten-" + id + " input").addClass("error-form")
+    $(".shorten-" + id + " .text").text("<%= @url.errors.messages[:shorten].first %>")
+    $(".shorten-" + id + " .text").addClass("error-text")
+  <% else %>
+    $(".shorten-" + id + " input").removeClass("error-form")
+    $(".shorten-" + id + " .text").text("")
+    $(".shorten-" + id + " .text").removeClass("error-text")
+  <% end %>
+<% else %>
+  urlDestination = $(".link-url-" + id + " input").val()
+  shorten = $(".shorten-" + id +" input").val()
+  short = window.location.origin + "/" + shorten
+  $(".link-url-" + id).html("<a href=" + urlDestination +" target='_blank'>" + urlDestination + "</a>")
+  $(".shorten-" + id).html("<a href=" + short + " target='_blank'>" + short + "</a>")
+  $(".action-button-" + id).html("<a data-id=" + id +" class='btn btn-edit-shorten edit-shorten-" + id +"' href='javascript:void(0);'>Edit</a><span>|</span><a data-confirm='Do you wish to delete this Short URL?' rel='nofollow' data-method='delete' data-remote='true' href=/urls/" + id + ">Delete</a>")
+<% end %>

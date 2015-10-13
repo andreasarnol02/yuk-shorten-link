@@ -47,7 +47,8 @@ gem 'omniauth-google-oauth2'
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 # Setting config and credentials
 gem "config"
-
+# Ahoy
+gem 'ahoy_matey'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
