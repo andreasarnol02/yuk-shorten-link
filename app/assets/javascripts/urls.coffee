@@ -5,7 +5,7 @@ $(document).on "click", "#url_type_url_default", ->
 
 $(document).on "click", "#url_type_url_custom", ->
 	$(".type").html("
-		<input type='text' name='url[shorten]' class='form-control' placeholder='Put your shorten ex: MyMusic' />
+		<input type='text' name='url[shorten]' class='form-control' id='shorten-header' placeholder='Put your shorten ex: MyMusic' />
 	")
 	$('.type').addClass("col-md-4")
 	$("#btn-short-url").removeClass("col-md-6")

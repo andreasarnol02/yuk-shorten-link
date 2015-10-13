@@ -6,15 +6,12 @@ class UrlsController < ApplicationController
   end
 
   def create
-    @url = 
-    	current_user.present? ? current_user.urls.new(url_params) : Url.new(url_params)
+    @url = current_user.present? ? current_user.urls.new(url_params) : Url.new(url_params)
 
     respond_to do |format|
       if @url.save
-        format.json { render json: @url, status: :created }
         format.js
       else
-        format.json { render json: @url.errors, status: :unprocessable_entity }
         format.js
       end
     end 

@@ -49,6 +49,10 @@ gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 gem "config"
 # Ahoy
 gem 'ahoy_matey'
+# Charting
+gem "chartkick"
+# Grouping date
+gem 'groupdate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
