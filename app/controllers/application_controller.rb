@@ -35,4 +35,8 @@ class ApplicationController < ActionController::Base
     def set_url
       @url = Url.new
     end
+
+    def is_production?
+      Rails.env.production?
+    end
 end
