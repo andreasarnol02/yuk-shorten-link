@@ -53,6 +53,8 @@ gem 'ahoy_matey'
 gem "chartkick"
 # Grouping date
 gem 'groupdate'
+# Active job backport
+# gem 'activejob_backport'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

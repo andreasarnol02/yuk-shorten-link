@@ -1,0 +1,44 @@
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        .panel-title Country
+      .panel-body
+        = geo_chart country_dashboard_statistics_path
+
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        .panel-title Browser
+      .panel-body
+        = pie_chart browser_dashboard_statistics_path
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        .panel-title Operating System
+      .panel-body
+        = pie_chart os_dashboard_statistics_path
+.row
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        .panel-title Device Type
+      .panel-body
+        = pie_chart device_type_dashboard_statistics_path
+
+  .col-md-6
+    .panel.panel-default
+      .panel-heading
+        .panel-title Reffering Site
+      .panel-body
+        table.table
+          tr
+            th Site
+            th Clicks
+
+          tbody
+            - @referrer.each do |s|
+              tr
+                td = s.first
+                td = s.last

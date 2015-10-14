@@ -18,6 +18,8 @@ class ApplicationController < ActionController::Base
       shorten = request.path.gsub("/", "")
       url = Url.find_by(shorten: shorten)
       if url
+        ahoy.track_visit
+        ahoy.track "Track Click", url_id: url.id
         redirect_to url.url
       else
         respond_to do |format|

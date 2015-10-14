@@ -6,6 +6,7 @@ html lang="en"
     meta name="viewport" content="width=device-width, initial-scale=1"
     = stylesheet_link_tag    'dashboard/application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'dashboard/application', 'data-turbolinks-track' => true
+    = javascript_include_tag "//www.google.com/jsapi", "chartkick", 'data-turbolinks-track' => true
     = csrf_meta_tags
   BODY    
     header
@@ -44,5 +45,8 @@ html lang="en"
         .col-md-2
           ul
             li = link_to "My Links", dashboard_my_links_path
+            li = link_to "Statistics", dashboard_statistics_path
         .col-md-10
           = yield
+    footer
+    
