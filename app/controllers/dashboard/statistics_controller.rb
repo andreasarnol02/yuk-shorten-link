@@ -4,8 +4,9 @@ class Dashboard::StatisticsController < Dashboard::HomeController
 
 
   def index
-    @referrer   = Ahoy::Event.track_url_self(@url_ids).group(:referring_domain).count 
-    @top_clikcs = current_user.urls.page(params[:page]).limit(10)
+    @referrer     = Ahoy::Event.track_url_self(@url_ids).group(:referring_domain).count 
+    @top_clikcs   = current_user.urls.page(params[:page]).limit(10)
+    @total_clicks = current_user.urls.sum(:click_count)
   end
 
   def browser

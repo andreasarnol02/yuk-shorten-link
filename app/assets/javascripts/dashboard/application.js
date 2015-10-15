@@ -17,5 +17,6 @@
 //= require nprogress-turbolinks
 //
 //= require urls
+//= require dashboard/statistics
 //
 //= require turbolinks

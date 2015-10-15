@@ -1,5 +1,12 @@
 .row
   .col-md-12
+    .pull-left 
+      h4 = "Total #{@total_clicks} clicks on your link"
+    .pull-right
+      = simple_form_for :stat, html: {id: "stat-sort"}, remote: true, url: dashboard_statistics_path, method: :get do |f|
+        = f.input :time, as: :select, collection: ["All Time", "Past 24 Hours", "Past 7 Days", "Past 14 Days", "Past 30 Days", "Past 3 Months", "Past 1 Year"], selected: "All Time", label: false
+.row
+  .col-md-12
     .panel.panel-default
       .panel-heading
         .panel-title Top 5 Clicks

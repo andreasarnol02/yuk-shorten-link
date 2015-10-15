@@ -17,7 +17,6 @@ table.table
           = link_to "Edit", "javascript:void(0);", data: { id: link.id }, class: "btn btn-edit-shorten edit-shorten-#{link.id}"
           span | 
           = link_to "Delete", link, data: { confirm: "Do you wish to delete this Short URL?" }, method: :delete, remote: true
-
   tfooter
     tr
       th colspan='3' Total Clicks
