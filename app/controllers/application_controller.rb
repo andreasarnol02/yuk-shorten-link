@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  http_basic_authenticate_with name: "sl", password: "abcada5", if: :is_production?
+  http_basic_authenticate_with name: Settings.app_pass.user, password: Settings.app_pass.password, if: :is_production?
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_url

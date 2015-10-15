@@ -1,8 +1,14 @@
+app_pass:
+  user: "sl"
+  pass: "abcada5"
+
 secret_key_base:
   key: ""
 
 social_network:
   facebook:
+    # app_id: "926849604061877"
+    # key: "3bb78d986028ed59163d7c0b41d75527"
     app_id: "778238925635445"
     key: "4d996bac958dc8cf0c013a545a246d30"
   google:

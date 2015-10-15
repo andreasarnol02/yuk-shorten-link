@@ -40,5 +40,5 @@
           tbody
             - @referrer.each do |s|
               tr
-                td = link_to s.first, s.first, target: "_blank"
+                td = link_helper_nil(s.first)
                 td = s.last

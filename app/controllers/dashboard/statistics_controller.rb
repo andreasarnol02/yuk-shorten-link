@@ -1,21 +1,29 @@
 class Dashboard::StatisticsController < Dashboard::HomeController
+  before_action :statistics, except: :index
+
   def index
-    @referrer = Ahoy::Event.joins(:visit).where(user_id: current_user.id).group(:referrer).count
+    url_ids = current_user.urls.map{ |e| e.id.to_s }
+
+    @referrer = Ahoy::Event.joins(:visit).where("ahoy_events.properties->>'url_id' in (?)", url_ids).group(:referrer).count 
   end
 
   def browser
-    render json: Ahoy::Event.joins(:visit).where(user_id: current_user.id).group(:browser).count
   end
 
   def country
-    render json: Ahoy::Event.joins(:visit).where(user_id: current_user.id).group(:country).count
   end
 
   def os
-    render json: Ahoy::Event.joins(:visit).where(user_id: current_user.id).group(:os).count
   end
 
   def device_type
-    render json: Ahoy::Event.joins(:visit).where(user_id: current_user.id).group(:device_type).count
   end
+
+  private
+    def statistics
+      url_ids = current_user.urls.map{ |e| e.id.to_s }
+      result = Ahoy::Event.joins(:visit).where("ahoy_events.properties->>'url_id' in (?)", url_ids).group(action_name.to_sym).count 
+
+      render json: result
+    end
 end
