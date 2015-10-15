@@ -23,6 +23,7 @@ Rails.application.routes.draw do
         get "os"
         get "country"
         get "device_type"
+        get "clicks"
       end
     end
   end

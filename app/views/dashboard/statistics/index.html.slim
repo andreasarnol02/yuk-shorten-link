@@ -2,6 +2,31 @@
   .col-md-12
     .panel.panel-default
       .panel-heading
+        .panel-title Top 5 Clicks
+      .panel-body
+        table.table
+          tr
+            th URL
+            th Shorten
+            th Total Clicks
+
+          tbody
+            - @top_clikcs.each do |click|
+              td = link_to click.url, click.url, target: "_blank"
+              td = link_to "#{request.base_url}/#{click.shorten}", "#{request.base_url}/#{click.shorten}", target: "_blank"
+              td = click.click_count
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
+        .panel-title Clicks
+      .panel-body
+        = line_chart clicks_dashboard_statistics_path
+
+.row
+  .col-md-12
+    .panel.panel-default
+      .panel-heading
         .panel-title Country
       .panel-body
         = geo_chart country_dashboard_statistics_path

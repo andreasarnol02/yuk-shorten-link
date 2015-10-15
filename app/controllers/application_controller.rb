@@ -19,9 +19,10 @@ class ApplicationController < ActionController::Base
     def redirect_shorten_url
       shorten = request.path.gsub("/", "")
       url = Url.find_by(shorten: shorten)
-      if url
+      if url.present?
         ahoy.track_visit
         ahoy.track "Track Click", url_id: url.id
+        url.update(click_count: url.click_count + 1)
         redirect_to url.url
       else
         respond_to do |format|

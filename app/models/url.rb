@@ -5,7 +5,7 @@ class Url < ActiveRecord::Base
   validates :shorten, presence: true, on: :update
   validates_format_of :url, :with => URI::regexp(%w(http https))
   validates_format_of :shorten, with: /^[A-Za-z0-9]+$/, multiline: true, message: "Only numeric and character allowed!", on: :update
-  validate :check_shorten, on: :update
+  # validate :check_shorten, on: :update
   validate :same_user, on: :create
 
   after_create :encode_url, unless: :custom
