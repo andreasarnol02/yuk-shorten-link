@@ -10,6 +10,7 @@ class CreateAhoyEvents < ActiveRecord::Migration
 
       t.string :name
       t.jsonb :properties
+      t.string :referrer_domain
       t.timestamp :time
     end
 

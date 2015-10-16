@@ -7,7 +7,7 @@ class Dashboard::StatisticsController < Dashboard::HomeController
     properties   = Ahoy::Event.track_url_self(@url_ids).group(:properties).count
     url_ids      = properties.map { |key, value| key.map { |key,value| value } }.flatten
 
-    @referrer     = Ahoy::Event.track_url_self(@url_ids).group(:referring_domain).count 
+    @referrer     = Ahoy::Event.track_url_self(@url_ids).group(:referrer_domain).count 
     @top_clikcs   = Url.where(id: url_ids).order(click_count: :desc).page(params[:page]).limit(5)
     @total_clicks = properties.map { |key, value| value }.inject { |sum, x| sum + x }
   end
