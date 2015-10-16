@@ -12,7 +12,8 @@ table.table
           = link_to link.url, link.url, target: "_blank"
         td class="shorten-#{link.id}"
           = link_to "#{request.base_url}/#{link.shorten}", "#{request.base_url}/#{link.shorten}", target: "_blank"
-        td = link.click_count
+        td class="click-count-#{link.id}"
+          = link.click_count
         td class="action-button-#{link.id}"
           = link_to "Edit", "javascript:void(0);", data: { id: link.id }, class: "btn btn-edit-shorten edit-shorten-#{link.id}"
           span | 

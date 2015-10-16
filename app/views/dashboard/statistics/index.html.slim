@@ -19,9 +19,10 @@
 
           tbody
             - @top_clikcs.each do |click|
-              td = link_to click.url, click.url, target: "_blank"
-              td = link_to "#{request.base_url}/#{click.shorten}", "#{request.base_url}/#{click.shorten}", target: "_blank"
-              td = click.click_count
+              tr
+                td = link_to click.url, click.url, target: "_blank"
+                td = link_to "#{request.base_url}/#{click.shorten}", "#{request.base_url}/#{click.shorten}", target: "_blank"
+                td = click.click_count
 .row
   .col-md-12
     .panel.panel-default
