@@ -21,9 +21,7 @@ class ApplicationController < ActionController::Base
       url = Url.find_by(shorten: shorten)
       if url.present?
         ahoy.track_visit
-        ahoy.track "Track Click", url_id: url.id
-        request_referrer = URI(request.referrer).host rescue "Unknown source"
-        Ahoy::Event.last.update(referrer_domain: request_referrer)
+        ahoy.track "Track Click", { url_id: url.id }
         url.update(click_count: url.click_count + 1)
         redirect_to url.url
       else
