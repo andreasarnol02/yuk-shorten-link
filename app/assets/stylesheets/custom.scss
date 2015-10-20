@@ -26,10 +26,12 @@ form#form-shorten{
 	margin-top: 30px;
 }
 
-#radio-default-url{
-	margin-left: 250px;
-}
-
-#radio-custom-url{
-	margin-right: 290px;
+@media (min-width: 992px){
+	#radio-default-url{
+		margin-left: 250px;
+	}	
+	
+	#radio-custom-url{
+		margin-right: 290px;
+	}
 }

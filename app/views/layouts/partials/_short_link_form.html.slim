@@ -3,14 +3,14 @@
   h5.header-text-small Make Your Link Easier to Remember
 
 = simple_form_for :url, url: urls_path, method: :post, remote: true, html: { id: "form-shorten", novalidate: false } do |f|
-  .col-md-12
-    .form-group.col-md-12
+  .col-md-12.col-xs-12
+    .form-group.col-md-12.col-xs-12
       .text-center
-        .col-md-6
+        .col-md-6.col-xs-6
           #radio-default-url
             = radio_button("url", "type_url", "default", checked: true)
             |  Default
-        .col-md-6
+        .col-md-6.col-xs-6
           #radio-custom-url
             = radio_button("url", "type_url", "custom")
             |  Custom
