@@ -17,6 +17,7 @@
 //= require ahoy
 //
 //= require urls
+//= require analytics
 
 $(document).ajaxSend(function() {
   NProgress.start();
