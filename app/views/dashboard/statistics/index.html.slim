@@ -1,9 +1,9 @@
 .row
   .col-md-12
     .pull-left 
-      h4 = "Total #{@total_clicks} clicks on your link"
+      h4#total_clicks = "Total #{pluralize(@total_clicks, 'click')} on your link"
     .pull-right
-      = simple_form_for :stat, html: {id: "stat-sort"}, remote: true, url: dashboard_statistics_path, method: :get do |f|
+      = simple_form_for :stat, html: {id: "stat-sort"}, remote: true, url: dashboard_statistics_path, method: :get, remote: true do |f|
         = f.input :time, as: :select, collection: ["All Time", "Past 24 Hours", "Past 7 Days", "Past 14 Days", "Past 30 Days", "Past 3 Months", "Past 1 Year"], selected: "All Time", label: false
 .row
   .col-md-12
@@ -17,18 +17,15 @@
             th Shorten
             th Total Clicks
 
-          tbody
-            - @top_clikcs.each do |click|
-              tr
-                td = link_to click.url, click.url, target: "_blank"
-                td = link_to "#{request.base_url}/#{click.shorten}", "#{request.base_url}/#{click.shorten}", target: "_blank"
-                td = click.click_count
+          tbody#top_clicks
+            = render 'dashboard/statistics/partials/top_clicks', top_clicks: @top_clicks
+
 .row
   .col-md-12
     .panel.panel-default
       .panel-heading
         .panel-title Clicks
-      .panel-body
+      .panel-body#clicks
         = line_chart clicks_dashboard_statistics_path
 
 .row
@@ -36,7 +33,7 @@
     .panel.panel-default
       .panel-heading
         .panel-title Country
-      .panel-body
+      .panel-body#country
         = geo_chart country_dashboard_statistics_path
 
 .row
@@ -44,20 +41,20 @@
     .panel.panel-default
       .panel-heading
         .panel-title Browser
-      .panel-body
+      .panel-body#browser
         = pie_chart browser_dashboard_statistics_path
   .col-md-6
     .panel.panel-default
       .panel-heading
         .panel-title Operating System
-      .panel-body
+      .panel-body#operating-system
         = pie_chart os_dashboard_statistics_path
 .row
   .col-md-6
     .panel.panel-default
       .panel-heading
         .panel-title Device Type
-      .panel-body
+      .panel-body#device-type
         = pie_chart device_type_dashboard_statistics_path
 
   .col-md-6
@@ -70,8 +67,5 @@
             th Site
             th Clicks
 
-          tbody
-            - @referrer.each do |s|
-              tr
-                td = s.first
-                td = s.last
+          tbody#refferer
+            = render 'dashboard/statistics/partials/referrer', referrer: @referrer

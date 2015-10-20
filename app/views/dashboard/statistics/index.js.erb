@@ -1,0 +1,10 @@
+$("tbody#top_clicks").html("<%= j(render partial: 'dashboard/statistics/partials/top_clicks', locals: { top_clicks: @top_clicks }) %>")
+$("tbody#refferer").html("<%= j(render partial: 'dashboard/statistics/partials/referrer', locals: { referrer: @referrer }) %>")
+$("#total_clicks").html("Total <%= pluralize(@total_clicks, 'click') %>  on your link")
+
+$(".panel-body#device-type").html("<%= j(pie_chart device_type_dashboard_statistics_path(stat: {time: params[:stat][:time]})) %>")
+$(".panel-body#browser").html("<%= j(pie_chart browser_dashboard_statistics_path(stat: {time: params[:stat][:time]})) %>")
+$(".panel-body#operating-system").html("<%= j(pie_chart os_dashboard_statistics_path(stat: {time: params[:stat][:time]})) %>")
+$(".panel-body#country").html("<%= j(geo_chart country_dashboard_statistics_path(stat: {time: params[:stat][:time]})) %>")
+$(".panel-body#clicks").html("<%= j(line_chart clicks_dashboard_statistics_path(stat: {time: params[:stat][:time]})) %>")
+
