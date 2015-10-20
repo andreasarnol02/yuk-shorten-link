@@ -12,8 +12,14 @@
  *
  *= require_self
  *= require font-awesome
+ *= require nprogress
+ *= require nprogress-bootstrap
+ *= require custom
+ *= require urls
  */
-
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+footer{
+}

@@ -2,10 +2,13 @@ class Url < ActiveRecord::Base
   belongs_to :user
 
   validates :url, presence: true
+  validates :shorten, presence: true, on: :create, if: :custom
   validates :shorten, presence: true, on: :update
   validates_format_of :url, :with => URI::regexp(%w(http https))
+  validates_format_of :shorten, with: /^[A-Za-z0-9]+$/, multiline: true, message: "Only numeric and character allowed!", on: :create, if: :custom
   validates_format_of :shorten, with: /^[A-Za-z0-9]+$/, multiline: true, message: "Only numeric and character allowed!", on: :update
-  # validate :check_shorten, on: :update
+  validate :check_shorten, on: :create, if: :custom
+  validate :check_shorten, on: :update
   validate :same_user, on: :create
 
   after_create :encode_url, unless: :custom
@@ -14,7 +17,7 @@ class Url < ActiveRecord::Base
 
   def same_user
     if Url.find_by(user_id: self.user_id, url: self.url).present?
-      errors.add(:url_unique, "This url already registered within your account.")
+      errors.add(:url_unique, "This url already registered.")
     end
   end
 

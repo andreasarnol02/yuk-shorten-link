@@ -1,18 +1,26 @@
-= simple_form_for :url, url: urls_path, method: :post, remote: true do |f|
+#shorten-link-text.text-center
+  h2.header-text-big Let's Shorten Your Link
+  h5.header-text-small Make Your Link Easier to Remember
+
+= simple_form_for :url, url: urls_path, method: :post, remote: true, html: { id: "form-shorten", novalidate: false } do |f|
   .col-md-12
     .form-group.col-md-12
       .text-center
         .col-md-6
-          = radio_button("url", "type_url", "default", checked: true)
-          |  Default
+          #radio-default-url
+            = radio_button("url", "type_url", "default", checked: true)
+            |  Default
         .col-md-6
-          = radio_button("url", "type_url", "custom")
-          |  Custom
+          #radio-custom-url
+            = radio_button("url", "type_url", "custom")
+            |  Custom
     .form-group.col-md-12
+      .col-md-2.empty-form
       .form-inputs.col-md-6.url-form-header
-        = f.input :url, label: false, placeholder: "Put your destination URL here. ex: http://google.com"
+        = f.input :url, label: false, placeholder: "Put your destination URL here. ex: http://google.com", input_html: { required: true }
         .text
       .form-inputs.type
-      .form-action.col-md-6#btn-short-url
-        = f.submit "Create Short URL", class: "btn btn-default btn-sm"
+      .form-action.col-md-4#btn-short-url
+        = f.submit "CREATE", class: "btn btn-success btn-sm"
     #short-url-form-header
+    #short-url-url

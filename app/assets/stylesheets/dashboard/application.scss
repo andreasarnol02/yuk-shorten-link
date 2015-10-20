@@ -14,17 +14,9 @@
  *= require font-awesome
  *= require nprogress
  *= require nprogress-bootstrap
+ *= require urls
  */
 
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
-.error-form{
-  border-color: red;
-}
-
-.error-text{
-  color: red;
-  font-size: 11px;
-}

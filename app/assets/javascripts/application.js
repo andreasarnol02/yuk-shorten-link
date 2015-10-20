@@ -13,7 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require nprogress
 //= require ahoy
 //
 //= require urls
 
+$(document).ajaxSend(function() {
+  NProgress.start();
+});
+
+$(document).ajaxComplete(function() {
+  NProgress.done();
+});

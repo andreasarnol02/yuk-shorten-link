@@ -1,15 +1,24 @@
 $(document).on "click", "#url_type_url_default", ->
 	$(".type").html("")
 	$("#btn-short-url").removeClass("col-md-2")
-	$("#btn-short-url").addClass("col-md-6")
+	$("#btn-short-url").addClass("col-md-4")
+	$(".url-form-header").removeClass("col-md-5")
+	$(".url-form-header").addClass("col-md-6")
+	$(".empty-form").removeClass("col-md-1")
+	$(".empty-form").addClass("col-md-2")
 
 $(document).on "click", "#url_type_url_custom", ->
 	$(".type").html("
-		<input type='text' name='url[shorten]' class='form-control' id='shorten-header' placeholder='Put your shorten ex: MyMusic' />
+		<input type='text' name='url[shorten]' class='form-control' id='shorten-header' placeholder='Put your shorten ex: MyMusic' required />
 	")
-	$('.type').addClass("col-md-4")
-	$("#btn-short-url").removeClass("col-md-6")
+	$('.type').addClass("col-md-3")
+	$(".type").append("<div class='shorten-header-text'></div>")
+	$(".url-form-header").removeClass("col-md-6")
+	$(".url-form-header").addClass("col-md-5")
+	$("#btn-short-url").removeClass("col-md-4")
 	$("#btn-short-url").addClass("col-md-2")
+	$(".empty-form").removeClass("col-md-2")
+	$(".empty-form").addClass("col-md-1")
 
 $(document).on "click", ".btn-edit-shorten", ->
 	id = $(@).data("id")
