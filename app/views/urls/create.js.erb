@@ -11,7 +11,7 @@
     $(".url-form-header .text").text("<%= @url.errors.messages[:url_unique].first %>")
     $(".url-form-header .text").addClass("error-text")
     $("#short-url-form-header").html("<div id='box-result'><div class='col-md-12 text-center'><h2>Your shorten URL</h2></div>")
-    $("#short-url-url").html("<div class='col-md-12 text-center'><a href='<%= request.base_url %>/<%= @url.shorten %>' target='_blank' class='text-link-result'><%= request.base_url %>/<%= @url.shorten %></a></div></div>")
+    $("#short-url-url").html("<div class='col-md-12 text-center'><a href='<%= request.base_url %>/<%= url.shorten %>' target='_blank' class='text-link-result'><%= request.base_url %>/<%= url.shorten %></a></div></div>")
     $("#short-url-form-header").slideUp(0)
     $("#short-url-form-header").slideDown(250)
   <% end %>
