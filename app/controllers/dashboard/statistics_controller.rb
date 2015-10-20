@@ -21,7 +21,6 @@ class Dashboard::StatisticsController < Dashboard::HomeController
   end
 
   def device_type
-    asd
   end
 
   def clicks

@@ -20,3 +20,11 @@
 //= require dashboard/statistics
 //
 //= require turbolinks
+
+$(document).ajaxSend(function() {
+  NProgress.start();
+});
+
+$(document).ajaxComplete(function() {
+  NProgress.done();
+});
