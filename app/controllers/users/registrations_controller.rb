@@ -1,12 +1,8 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  layout :layout_login
+  include Layoutable
 
   private
-	  def layout_login
-	  	if action_name.eql?("edit") || action_name.eql?("update")
-	  		"dashboard_users"
-	  	else
-	  		"authentication"
-	  	end
-	  end
+    def after_inactive_sign_up_path_for(resource)
+      new_user_session_path
+    end
 end

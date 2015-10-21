@@ -1,16 +1,31 @@
-<h2>Resend confirmation instructions</h2>
+<div class='box'>
+  <h2 class='text-center' style="margin-bottom: 30px;">RESEND CONFIRMATION</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-  <%= f.full_error :confirmation_token %>
+  <%= simple_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, novalidate: false }) do |f| %>
+    <% if resource.errors.any? %>
+      <div class='alert alert-danger'>
+        <a class='close' data-dismiss='alert' href=''>x</a>
+        <strong>Please review problem below : </strong>
+        <ul>
+          <% resource.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.full_error :confirmation_token %>
+
+    <div class="form-inputs">
+      <%= f.input :email, input_html: { required: true }, autofocus: true, label: false, placeholder: "Email Address" %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Resend confirmation instructions" %>
+    </div>
+  <% end %>
+
+  <div class='create-account'  style='margin-top: 20px;'>
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Resend confirmation instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

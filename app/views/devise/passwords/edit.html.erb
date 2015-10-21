@@ -1,19 +1,33 @@
-<h2>Change your password</h2>
+<div class='box'>
+  <h2 class='text-center' style="margin-bottom: 30px;">CHANGE PASSWORD</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+  <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, novalidate: false }) do |f| %>
+    <% if resource.errors.any? %>
+      <div class='alert alert-danger'>
+        <a class='close' data-dismiss='alert' href=''>x</a>
+        <strong>Please review problem below : </strong>
+        <ul>
+          <% resource.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
+    <%= f.input :reset_password_token, as: :hidden %>
+    <%= f.full_error :reset_password_token %>
 
-  <div class="form-inputs">
-    <%= f.input :password, label: "New password", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
+    <div class="form-inputs">
+      <%= f.input :password, label: "New password", input_html: { required: true }, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+      <%= f.input :password_confirmation, label: "Confirm your new password", input_html: { required: true } %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Change my password" %>
+    </div>
+  <% end %>
+
+  <div class='create-account'  style='margin-top: 20px;'>
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :visits
   has_many :ahoy_events
 
+  validates_presence_of :name
+
   def self.from_omniauth(auth)
     joins(:authentications).where(authentications: { provider: auth.provider, uid: auth.uid }).first_or_create do |user|
       token = Devise.friendly_token[0, 12]
