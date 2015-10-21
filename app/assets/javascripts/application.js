@@ -18,6 +18,7 @@
 //
 //= require urls
 //= require analytics
+//= require home
 
 $(document).ajaxSend(function() {
   NProgress.start();

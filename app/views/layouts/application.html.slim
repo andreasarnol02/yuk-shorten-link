@@ -10,7 +10,7 @@ html lang="en"
     = javascript_include_tag 'application'
     = csrf_meta_tags
   BODY    
-    nav.navbar.navbar-default
+    nav.navbar.navbar-default#head
       .container
         /! Brand and toggle get grouped for better mobile display
         .navbar-header
@@ -24,11 +24,9 @@ html lang="en"
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav.navbar-right
             li
-              = link_to "Why Yuk".html_safe, "#why-yuk"
+              = link_to "Why Yuk".html_safe, "#why-yuk", class: "why-yuk-link"
             li
-              = link_to "How it Works".html_safe, "#how-it-works"
-            li
-              = link_to "Contact".html_safe, "#contact"
+              = link_to "Contact".html_safe, "#contact", class: "contact-link"
             li
               = link_to "Developers".html_safe, "#"
             li
@@ -36,26 +34,54 @@ html lang="en"
             li
               = link_to "Sign up".html_safe, "#"
 
-    .container
-      section
+    section#short-link-form
+      .container
         = render 'layouts/partials/short_link_form'
-      section
-        #why-yuk
-        #how-it-works
-        #contact
+        .clear-both
+    section#content
+      #why-yuk.text-center
+        .container
+          .row.why-content
+            h2.why-text-big WHY YUK
+          .row
+            .col-md-4
+              span.fa-stack.fa-3x
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-desktop.fa-stack-1x.fa-inverse
+              h4
+                strong.caption All Premium Feature For Free
+              p You will get all premium feature for free forever. Premium tools such as developer tools and also full statistics for all your link for free.
+            .col-md-4
+              span.fa-stack.fa-3x
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-desktop.fa-stack-1x.fa-inverse
+              h4
+                strong.caption No Ads
+              p Our commitment is to make user enjoy using our application. One commitment we always keep is to make this application free from advertisment.
+            .col-md-4
+              span.fa-stack.fa-3x
+                i.fa.fa-circle.fa-stack-2x
+                i.fa.fa-desktop.fa-stack-1x.fa-inverse
+              h4
+                strong.caption Simple and Clean
+              p We will keep this application simple, clean, and easy to use. You will not find it hard to use this application.
+      #contact.text-center
+        .container
+          .row
+            h2.url-contact CONTACT
+            h4.caption-contact Need Something? You can contact us through email!
+            h4 = link_to "SEND EMAIL", "mailto:andreasarnold02@gmail.com", class: "btn btn-lg btn-success"
 
     footer
-      nav.navbar.navbar-default.navbar-fixed-bottom.hidden-xs
+      nav.navbar.navbar-default
         .container
           ul.nav.navbar-nav
             li = link_to "Copyright &copy; 2015 Yuk Group.".html_safe, root_path
           ul.nav.navbar-nav.navbar-right
             li
-              = link_to "Why Yuk".html_safe, "#why-yuk"
+              = link_to "Why Yuk".html_safe, "#why-yuk", class: "why-yuk-link"
             li
-              = link_to "How it Works".html_safe, "#how-it-works"
-            li
-              = link_to "Contact".html_safe, "#contact"
+              = link_to "Contact".html_safe, "#contact", class: "contact-link"
             li
               = link_to "Developers".html_safe, "#"
             li
