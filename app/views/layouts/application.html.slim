@@ -30,9 +30,9 @@ html lang="en"
             li
               = link_to "Developers".html_safe, "#"
             li
-              = link_to "Sign in".html_safe, "#"
+              = link_to "Sign in".html_safe, new_user_session_path
             li
-              = link_to "Sign up".html_safe, "#"
+              = link_to "Sign up".html_safe, new_user_registration_path
 
     section#short-link-form
       .container
@@ -85,8 +85,8 @@ html lang="en"
             li
               = link_to "Developers".html_safe, "#"
             li
-              = link_to "Sign in".html_safe, "#"
+              = link_to "Sign in".html_safe, new_user_session_path
             li
-              = link_to "Sign up".html_safe, "#"
+              = link_to "Sign up".html_safe, new_user_registration_path
 
     = render 'partials/google_analytics'

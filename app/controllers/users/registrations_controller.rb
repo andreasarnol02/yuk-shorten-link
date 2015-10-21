@@ -6,7 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 	  	if action_name.eql?("edit") || action_name.eql?("update")
 	  		"dashboard_users"
 	  	else
-	  		"application"
+	  		"authentication"
 	  	end
 	  end
 end

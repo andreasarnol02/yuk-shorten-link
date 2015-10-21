@@ -23,6 +23,8 @@ html lang="en"
           /! Collect the nav links, forms, and other content for toggling
           #bs-example-navbar-collapse-1.collapse.navbar-collapse
             ul.nav.navbar-nav
+              li = link_to "My Links", dashboard_my_links_path
+              li = link_to "Statistics", dashboard_statistics_path
             ul.nav.navbar-nav.navbar-right
               - if user_signed_in?
                 li
@@ -42,11 +44,7 @@ html lang="en"
       section
         = render 'layouts/partials/short_link_form'
       section
-        .col-md-2
-          ul
-            li = link_to "My Links", dashboard_my_links_path
-            li = link_to "Statistics", dashboard_statistics_path
-        .col-md-10
+        .col-md-12
           = yield
     footer
     

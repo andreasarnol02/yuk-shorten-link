@@ -38,6 +38,6 @@ class Url < ActiveRecord::Base
   end
 
   def check_shorten
-    errors.add(:shorten, "Shorten URL already taken. Please choose another shorten!") if Url.where("shorten = ?", self.shorten).present?
+    errors.add(:shorten, "Shorten URL already taken. Please choose another shorten!") if Url.where("shorten = ? AND shorten != ?", self.shorten, self.shorten).present?
   end
 end
