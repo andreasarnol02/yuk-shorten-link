@@ -8,7 +8,7 @@ class Users::ConnectsController < ApplicationController
     callback = session["devise.social_network_data"]
     @user.connect_account(callback["uid"], callback["provider"])
 
-    sign_in_and_redirect @user, :event => :authentication #this will throw if @user is not activated
+    sign_in_and_redirect dashboard_path, :event => :authentication #this will throw if @user is not activated
   end
 
   def unconnect

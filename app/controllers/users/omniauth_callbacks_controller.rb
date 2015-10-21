@@ -18,7 +18,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
         redirect_to edit_user_registration_url
       else
         if user.persisted?
-          sign_in_and_redirect user, :event => :authentication #this will throw if @user is not activated
+          sign_in_and_redirect dashboard_path, :event => :authentication #this will throw if @user is not activated
           set_flash_message(:notice, :success, :kind => provider) if is_navigational_format?
         else
           session["devise.social_network_data"] = callbacks
