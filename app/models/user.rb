@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   has_many :authentications, dependent: :destroy
   has_many :urls, dependent: :destroy
-  has_many :visits, dependent: :destroy
+  has_many :visits, dependent: :nullify
 
   validates_presence_of :name
 
