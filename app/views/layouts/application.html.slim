@@ -4,6 +4,9 @@ html lang="en"
     meta charset="utf-8"
     meta http-equiv="X-UA-Compatible" content="IE=edge"
     meta name="viewport" content="width=device-width, initial-scale=1"
+    = display_meta_tags :site => "Yuk! Shorten Link!"
+    - set_meta_tags title: "Yuk! Shorten Link!", description: "Let's shorten your link! Make your link easier to remember.", keyword: "Yuk, Shorten Link, Short Link, Yuk!", author: "https://yuksl.herokuapp.com", canonical: "https://yuksl.herokuapp.com", publisher: "https://yuksl.herokuapp.com", :'msvalidate.01' => "", og: { title: "Yuk! Shorten Link!", description: "Let's Shorten Your Link! Make Your Link Easier To Remember!", url: request.original_url, site_name: "Yuk! Shorten Link!", image: "" }
+
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Indie+Flower'
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato'
     = stylesheet_link_tag    'application', media: 'all'

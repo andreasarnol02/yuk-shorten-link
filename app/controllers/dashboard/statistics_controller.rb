@@ -2,6 +2,8 @@ class Dashboard::StatisticsController < Dashboard::HomeController
   before_action :set_url_ids
   before_action :statistics, except: [:index, :clicks]
 
+  add_breadcrumb "Statistics", :dashboard_statistics_url
+
   def index
     properties   = Ahoy::Event.track_url_self(@url_ids, @time).group(:properties).count
     url_ids      = properties.map { |key, value| key.map { |key,value| value } }.flatten

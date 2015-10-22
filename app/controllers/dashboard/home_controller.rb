@@ -3,7 +3,9 @@ class Dashboard::HomeController < ApplicationController
 
   before_action :authenticate_user!
 
-  def index
+  add_breadcrumb "Dashboard", :dashboard_url
 
+  def index
+  	add_breadcrumb "Home"
   end
 end

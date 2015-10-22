@@ -44,7 +44,11 @@ html lang="en"
       section
         = render 'layouts/partials/short_link_form'
       section
-        .col-md-12
-          = yield
+        .row
+          ol.breadcrumb
+            = render_breadcrumbs tag: :li, separator: ""
+        .row        
+          .col-md-12
+            = yield
     footer
     
