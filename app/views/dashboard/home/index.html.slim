@@ -1,0 +1,49 @@
+.row
+  .col-md-2
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title Today's Statistics
+      .panel-body
+        .col-md-12
+          #box.text-center.center-block
+            h4.clicks = @today_clicks_count
+            p.clicks-caption CLICKS
+  .col-md-5
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title Today's Clicks
+      .panel-body
+        .col-md-12
+          - if @today_clicks.present?
+            - @today_clicks.each do |link|
+              p = link.created_at.strftime("%d %b %Y %H:%M")
+              p = link_to link.url, link.url, target: "_blank"
+              p.m-top-20 
+                .pull-left
+                  = link_to "#{request.base_url}/#{link.shorten}", "#{request.base_url}/#{link.shorten}", target: "_blank"
+                .pull-right
+                  = link.click_count
+              br
+              hr
+          - else
+            p No clicks for today :'(
+
+  .col-md-5
+    .panel.panel-default
+      .panel-heading
+        h3.panel-title Today's Top 10 Clicks
+      .panel-body
+        .col-md-12
+          - if @top_10_today.present?
+            - @top_10_today.each do |link|
+              p = link.created_at.strftime("%d %b %Y %H:%M")
+              p = link_to link.url, link.url, target: "_blank"
+              p.m-top-20 
+                .pull-left
+                  = link_to "#{request.base_url}/#{link.shorten}", "#{request.base_url}/#{link.shorten}", target: "_blank"
+                .pull-right
+                  = link.click_count
+              br
+              hr
+          - else
+            p No clicks for today :'(
