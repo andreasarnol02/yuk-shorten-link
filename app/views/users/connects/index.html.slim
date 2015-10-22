@@ -1,7 +1,10 @@
-p 
-	| Your Email Address Already Associated with this account 
-	= @user.name
-p
-	= link_to "Connect", approve_users_connects_path
-	span  | 
-	= link_to "Cancel", new_user_session_path
+.box.text-center
+	p 
+		| Your Email Address Already Associated with this account 
+		strong = @user.name
+	p
+		strong Do you want to connect to this account?
+	p
+		= link_to "Connect", approve_users_connects_path, class: "btn btn-sm btn-success"
+		span  &nbsp;
+		= link_to "Cancel", new_user_session_path, class: "btn btn-danger btn-sm"

@@ -6,9 +6,8 @@ class User < ActiveRecord::Base
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
   has_many :authentications, dependent: :destroy
-  has_many :urls
-  has_many :visits
-  has_many :ahoy_events
+  has_many :urls, dependent: :destroy
+  has_many :visits, dependent: :destroy
 
   validates_presence_of :name
 

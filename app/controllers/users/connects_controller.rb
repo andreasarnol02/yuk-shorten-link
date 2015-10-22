@@ -1,4 +1,6 @@
 class Users::ConnectsController < ApplicationController
+  layout 'authentication'
+
   before_action :set_user, except: :unconnect
 
   def index
@@ -8,7 +10,8 @@ class Users::ConnectsController < ApplicationController
     callback = session["devise.social_network_data"]
     @user.connect_account(callback["uid"], callback["provider"])
 
-    sign_in_and_redirect dashboard_path, :event => :authentication #this will throw if @user is not activated
+    sign_in @user
+    redirect_to dashboard_path
   end
 
   def unconnect
