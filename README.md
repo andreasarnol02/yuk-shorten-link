@@ -4,6 +4,7 @@
 This is an example project for shorten link app like bit.ly using Ruby on Rails.
 
 ## How to use
+* You have to create your own database.yml because i didnt include database.yml
 
 ```
 rake db:create
@@ -18,11 +19,13 @@ https://yuksl.herokuapp.com/
 
 ## Contributing
 Everyone is encouraged to help improve this project. Here are a few ways you can help:
-
 Report bugs
 Fix bugs and submit pull requests
 Write, clarify, or fix documentation
 Suggest or add new features
+
+## New Feature
+To request a new feature just open on issue page
 
 ## Licence
 Copyright (c) 2015 Yuk Group.
