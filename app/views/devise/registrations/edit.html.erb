@@ -1,49 +1,57 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <% if resource.errors.any? %>
+<div class="panel panel-default">
+<div class="panel-heading"><h4>Edit <%= resource_name.to_s.humanize %></h4></div>
+  <div class="panel-body">
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <% if resource.errors.any? %>
     <div class='alert alert-danger'>
       <a class='close' data-dismiss='alert' href=''>x</a>
       <strong>Please review problem below : </strong>
       <ul>
         <% resource.errors.full_messages.each do |error| %>
-          <li><%= error %></li>
+        <li><%= error %></li>
         <% end %>
       </ul>
     </div>
-  <% end %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :email, required: true, autofocus: true %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+      <% end %>
 
-<h3>Connect to Social Network</h3>
-<div class="row">
-  <div class="col-md-12">
-    <div class="col-md-3">Facebook</div>
-    <div class="col-md-9"><%= connect("facebook") %></div>
-  </div>
-  <div class="col-md-12">
-    <div class="col-md-3">Google</div>
-    <div class="col-md-9"><%= connect("google_oauth2") %></div>
+      <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+      <%= f.input :password_confirmation, required: false %>
+      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit, "Update" %>
+    </div>
+    <% end %>
   </div>
 </div>
 
-<h3>Cancel my account</h3>
+<div class="panel panel-default">
+  <div class="panel-heading"><h4>Connect to Social Network</h4></div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-3">Facebook</div>
+        <div class="col-md-9"><%= connect("facebook") %></div>
+      </div>
+      <div class="col-md-12">
+        <div class="col-md-3">Google</div>
+        <div class="col-md-9"><%= connect("google_oauth2") %></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<div class="panel panel-default">
+  <div class="panel-heading"><h4>Cancel my account</h4></div>
+  <div class="panel-body">
+    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  </div>
+</div>
