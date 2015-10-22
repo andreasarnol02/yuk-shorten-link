@@ -19,10 +19,10 @@ https://yuksl.herokuapp.com/
 
 ## Contributing
 Everyone is encouraged to help improve this project. Here are a few ways you can help:
-Report bugs
-Fix bugs and submit pull requests
-Write, clarify, or fix documentation
-Suggest or add new features
+- Report bugs
+- Fix bugs and submit pull requests
+- Write, clarify, or fix doc
+- Sugges or add new features
 
 ## New Feature
 To request a new feature just open on issue page
