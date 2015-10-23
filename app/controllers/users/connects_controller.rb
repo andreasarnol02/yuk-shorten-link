@@ -21,6 +21,7 @@ class Users::ConnectsController < ApplicationController
 
   private
     def set_user
-      @user = User.find_by(email: session["devise.social_network_data"]["info"]["email"])
+      @user = User.find_by(email: session["devise.social_network_data"]["info"]["email"]) rescue nil
+      redirect_to root_path unless @user.present?
     end
 end
