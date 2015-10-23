@@ -5,9 +5,22 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :lockable, :confirmable, 
          :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
+  mount_uploader :avatar, AvatarUploader
+  
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
+
   has_many :authentications, dependent: :destroy
   has_many :urls, dependent: :destroy
   has_many :visits, dependent: :nullify
+  has_many :active_relationships,  class_name:  "Relationship",
+                                   foreign_key: "follower_id",
+                                   dependent:   :destroy
+  has_many :passive_relationships, class_name:  "Relationship",
+                                   foreign_key: "followed_id",
+                                   dependent:   :destroy
+  has_many :following, through: :active_relationships,  source: :followed
+  has_many :followers, through: :passive_relationships, source: :follower
 
   validates_presence_of :name
 
@@ -31,5 +44,21 @@ class User < ActiveRecord::Base
 
   def connect_account(uid, provider)
     authentications.create(uid: uid, provider: provider)
+  end
+
+  def follow(other_user)
+    active_relationships.create(followed_id: other_user.id)
+  end
+
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following?(other_user_id)
+    following.include?(User.find(other_user_id))
+  end
+
+  def following_ids
+    following.map(&:id)
   end
 end

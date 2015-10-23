@@ -54,6 +54,9 @@ gem 'ahoy_matey'
 gem "chartkick"
 # Grouping date
 gem 'groupdate'
+# Carrierwave
+gem 'carrierwave'
+gem 'mini_magick'
 # Active job backport
 # gem 'activejob_backport'
 # Use Capistrano for deployment

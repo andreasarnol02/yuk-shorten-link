@@ -11,8 +11,10 @@ Rails.application.routes.draw do
  }
 
   resources :urls
+  resources :users, only: [:index, :show]
 
   namespace :users do
+    resources :relationships, only: [:create, :destroy]
     resources :connects, only: :index do
       collection do 
         get "approve"

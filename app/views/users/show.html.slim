@@ -1,0 +1,36 @@
+.row
+  .container
+    .col-md-4.text-center
+      .box
+        = image_tag image_helper(@user, :medium), width: 150, height: 150, class: "img img-responsive center-block"
+        h4 = @user.name
+      .col-md-4
+        h6 Links Created
+        strong = @links_count
+      .col-md-4
+        h6 Links Clicked
+        strong = @links_clicked.nil? ? 0 : @links_clicked
+      .col-md-4
+        h6 Followers
+        strong = @followers_count
+    .col-md-8
+      h3 Feeds
+      hr
+      .col-md-12
+        - if @links_created.present?
+          - @links_created.each do |link|
+            .col-md-6
+              p = link.created_at.strftime("%d %b %Y %H:%M")
+              p = link_to link.url, link.url, target: "_blank"
+              p.m-top-20 
+                .pull-left
+                  = link_to "#{request.base_url}/#{link.shorten}", "#{request.base_url}/#{link.shorten}", target: "_blank"
+                .pull-right
+                  = link.click_count
+              br
+              hr
+          = paginate @links_created
+        - else
+          p This user has not created any links :'(
+
+

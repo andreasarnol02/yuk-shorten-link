@@ -1,0 +1,12 @@
+.row
+  .container
+    - if @users.present?
+      - @users.each do |user|
+        .col-md-3.text-center
+          .box.text-center
+            = image_tag image_helper(user, :medium), width: 150, height: 150, class: "img img-responsive center-block"
+            h4 = link_to user.name, user_path(user)
+
+      = paginate @users
+    - else
+      p There is no user at the present :(
