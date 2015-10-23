@@ -19,6 +19,8 @@
 /db/schema.rb
 
 /public/assets
+/public/uploads
+
 config/settings.local.yml
 config/settings/*.local.yml
 config/environments/*.local.yml
