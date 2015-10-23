@@ -1,3 +1,11 @@
+$(document).on "click", ".fb-click", ->
+	shorten = $(@).data("shorten")
+
+	FB.ui {
+	  method: 'share'
+	  href: "#{shorten}"
+	}, (response) ->
+
 $(document).on "click", "#url_type_url_default", ->
 	$(".type").html("")
 	$("#btn-short-url").removeClass("col-md-2")
