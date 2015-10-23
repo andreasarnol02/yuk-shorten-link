@@ -7,7 +7,8 @@ class UrlsController < ApplicationController
 
   def create
     @url = current_user.present? ? current_user.urls.new(url_params) : Url.new(url_params)
-
+    @url.ip = request.ip
+    
     respond_to do |format|
       if @url.save
         format.js
