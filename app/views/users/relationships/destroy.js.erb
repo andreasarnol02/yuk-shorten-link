@@ -1,0 +1,1 @@
+$(".follow-<%= @user.id %>").html("<%= j(link_to 'Follow', users_relationships_path(id: @user.id), class: 'btn btn-sm btn-info', remote: true, method: :post) %>")

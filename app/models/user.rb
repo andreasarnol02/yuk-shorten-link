@@ -54,10 +54,6 @@ class User < ActiveRecord::Base
     active_relationships.find_by(followed_id: other_user.id).destroy
   end
 
-  def following?(other_user_id)
-    following.include?(User.find(other_user_id))
-  end
-
   def following_ids
     following.map(&:id)
   end

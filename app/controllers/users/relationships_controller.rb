@@ -1,4 +1,6 @@
 class Users::RelationshipsController < ApplicationController
+	include Authenticable
+
 	before_action :set_user
 
 	def create

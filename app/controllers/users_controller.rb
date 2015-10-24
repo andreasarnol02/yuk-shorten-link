@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   layout 'dashboard_users'
 
+  before_action :set_following_ids
   before_action :set_user, only: :show
 
   add_breadcrumb "Users", :users_url
@@ -23,5 +24,9 @@ class UsersController < ApplicationController
   private
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def set_following_ids
+      @following_ids = current_user.present? ? current_user.following.map(&:id) : Array.new
     end
 end

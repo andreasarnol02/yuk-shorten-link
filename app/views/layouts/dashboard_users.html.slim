@@ -50,6 +50,8 @@ html lang="en"
         .row
           ol.breadcrumb
             = render_breadcrumbs tag: :li, separator: ""
+        .row
+          p.flash = flash_messages
         .row        
           .col-md-12
             = yield
