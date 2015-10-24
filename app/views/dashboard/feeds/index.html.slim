@@ -1,0 +1,40 @@
+.row
+  .container
+    .col-md-12
+      .col-md-9
+        h4 Feeds
+        hr
+        - if @feeds.present?
+          - @feeds.each do |feed|
+            .col-md-4
+              p style='float:left; margin-right: 10px;'
+                = image_tag image_helper(feed.user, :thumb), width: 50, height: 50, class: "img img-responsive"
+              p = link_to feed.user.name, user_path(feed.user)
+              p = feed.created_at.strftime("%d %b %Y %H:%M")
+              .clear-both
+              p = link_to truncate(feed.url), feed.url, target: "_blank"
+              p.m-top-20 
+                .pull-left
+                  = link_to truncate("#{request.base_url}/#{feed.shorten}"), "#{request.base_url}/#{feed.shorten}", target: "_blank"
+                .pull-right
+                  = feed.click_count
+              br
+              hr
+          = paginate @feeds
+        - else
+          p No feeds right now :(. Go follow some user!
+
+      .col-md-3
+        h4 Latest Link Shortened
+        hr
+        - @latest_url.each do |link|
+          .col-md-12
+            p = link.created_at.strftime("%d %b %Y %H:%M")
+            p = link_to truncate(link.url), link.url, target: "_blank"
+            p.m-top-20 
+              .pull-left
+                = link_to "#{request.base_url}/#{link.shorten}", "#{request.base_url}/#{link.shorten}", target: "_blank"
+              .pull-right
+                = link.click_count
+            br
+            hr

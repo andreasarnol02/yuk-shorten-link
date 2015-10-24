@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   namespace :dashboard do
     get "/" => "home#index"
     get "/my_links" => "urls#my_links"
+    resources :feeds, only: :index
     resources :statistics, only: :index do
       collection do
         get "browser"

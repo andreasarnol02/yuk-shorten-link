@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
     links_created    = @user.urls
     
-    @links_created   = links_created.page(params[:page]).per(30)
+    @links_created   = links_created.page(params[:page]).per(16)
     @links_count     = links_created.count
     @links_clicked   = links_created.pluck(:click_count).inject { |sum, x| sum + x }
     @followers_count = @user.followers.count

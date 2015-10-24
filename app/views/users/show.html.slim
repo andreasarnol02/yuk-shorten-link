@@ -27,10 +27,10 @@
           - @links_created.each do |link|
             .col-md-6
               p = link.created_at.strftime("%d %b %Y %H:%M")
-              p = link_to link.url, link.url, target: "_blank"
+              p = link_to truncate(link.url), link.url, target: "_blank"
               p.m-top-20 
                 .pull-left
-                  = link_to "#{request.base_url}/#{link.shorten}", "#{request.base_url}/#{link.shorten}", target: "_blank"
+                  = link_to truncate("#{request.base_url}/#{link.shorten}"), "#{request.base_url}/#{link.shorten}", target: "_blank"
                 .pull-right
                   = link.click_count
               br

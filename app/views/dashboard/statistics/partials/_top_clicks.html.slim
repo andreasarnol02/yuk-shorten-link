@@ -1,5 +1,5 @@
 - top_clicks.each do |click|
   tr
-    td = link_to click.url, click.url, target: "_blank"
+    td = link_to truncate(click.url), click.url, target: "_blank"
     td = link_to "#{request.base_url}/#{click.shorten}", "#{request.base_url}/#{click.shorten}", target: "_blank"
     td = Ahoy::Event.track_url_self(click.id.to_s, (params[:stat][:time] rescue false)).count
