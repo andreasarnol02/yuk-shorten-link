@@ -1,3 +1,20 @@
+window.fbAsyncInit = function() {
+  FB.init({
+    appId      : '778238925635445',
+    xfbml      : true,
+    version    : 'v2.4'
+  });
+};
+
+(function(d, s, id){
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+
 <% if @url.errors.present? %>
   <% if @url.errors.messages[:url].present? %>
     $(".url-form-header input").addClass("error-form")
