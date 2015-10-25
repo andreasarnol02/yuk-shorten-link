@@ -6,10 +6,10 @@
         h4 = @user.name
         - unless current_user.present? && current_user.id.eql?(@user.id)
           div class="follow-#{@user.id}"
-          - if @following_ids.include?(@user.id)
-            = link_to 'Unfollow', users_relationship_path(@user.id), class: 'btn btn-sm btn-danger', remote: true, method: :delete
-          - else
-            = link_to "Follow", users_relationships_path(id: @user.id), class: "btn btn-sm btn-info", remote: true, method: :post
+            - if @following_ids.include?(@user.id)
+              = link_to 'Unfollow', users_relationship_path(@user.id), class: 'btn btn-sm btn-danger', remote: true, method: :delete
+            - else
+              = link_to "Follow", users_relationships_path(id: @user.id), class: "btn btn-sm btn-info", remote: true, method: :post
       .col-md-4.col-xs-4
         h6 Links Created
         strong = @links_count
