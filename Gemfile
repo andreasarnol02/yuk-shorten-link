@@ -84,8 +84,13 @@ group :development do
   gem 'quiet_assets'
   #Letter opener for email
   gem "letter_opener"
+  # Some useful gems for optimization
+  gem 'bullet'
+  gem 'lol_dba' # run: rake db:find_indexes
+  gem 'pry-rails'
+  gem 'rack-mini-profiler'
+  gem 'rails_best_practices' # run: rails_best_practices -f html .
 end
-
 
 group :production do
   gem 'rails_12factor'
