@@ -1,13 +1,13 @@
 language: ruby
-sudo: false
+
 cache: bundler
-script: "bundle exec rspec"
 
-env:
-  - DATABASE_ADAPTER=postgresql
+sudo: false
 
-rvm:
-  - 2.2.2
+script: "RAILS_ENV=test bundle exec rake"
 
-gemfile:
-  - gemfiles/4.2.4.gemfile
+rvm: 2.2.2
+
+gemfile: gemfiles/4.2.4.gemfile
+
+env: DB=postgres
