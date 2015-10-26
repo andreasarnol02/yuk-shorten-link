@@ -4,10 +4,10 @@ cache: bundler
 
 sudo: false
 
-script: "RAILS_ENV=test bundle exec rake"
-
 rvm: 2.2.2
 
 gemfile: gemfiles/4.2.4.gemfile
 
 env: DB=postgres
+
+script: "RAILS_ENV=test bundle exec rake"
