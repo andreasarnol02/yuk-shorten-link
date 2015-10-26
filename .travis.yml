@@ -10,4 +10,13 @@ gemfile: gemfiles/4.2.4.gemfile
 
 env: DB=postgres
 
+before_install:
+  - git submodule update --init --recursive
+
+before_script:
+  - bundle install
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rails s -d
+
 script: "RAILS_ENV=test bundle exec rake"
