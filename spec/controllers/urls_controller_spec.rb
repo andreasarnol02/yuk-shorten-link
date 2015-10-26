@@ -13,14 +13,6 @@ RSpec.describe UrlsController, type: :controller do
 
   subject { assigns(:url) }
 
-  describe "GET #new" do
-    it "assigns a new url as @url" do
-      get :new, {}, user
-
-      expect { assigns(:url).to be_a_new(Url) }
-    end
-  end
-
   describe "POST #create" do
     it "creates a new url" do
       expect { post_action("url", valid_attributes) }.to change(Url, :count).by(1)
