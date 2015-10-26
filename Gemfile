@@ -69,11 +69,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
-  gem 'database_cleaner'
   gem 'launchy'
 end
 
 group :test do
+  gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
 end
 
