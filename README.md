@@ -1,4 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/YukGroup/yuk-shorten-link/badges/gpa.svg)](https://codeclimate.com/github/YukGroup/yuk-shorten-link)[![Circle CI](https://circleci.com/gh/YukGroup/yuk-shorten-link.svg?style=svg)](https://circleci.com/gh/YukGroup/yuk-shorten-link)
+[![Code Climate](https://codeclimate.com/github/YukGroup/yuk-shorten-link/badges/gpa.svg)](https://codeclimate.com/github/YukGroup/yuk-shorten-link)  [![Circle CI](https://circleci.com/gh/YukGroup/yuk-shorten-link.svg?style=svg)](https://circleci.com/gh/YukGroup/yuk-shorten-link)
 # Shorten Link Rails Example
 
 This is an example project for shorten link app like bit.ly using Ruby on Rails.
