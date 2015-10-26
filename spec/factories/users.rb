@@ -5,5 +5,6 @@ FactoryGirl.define do
     password_confirmation "asdasdasd"
     name "John Doe"
     slug "john-doe"
+    confirmed_at Time.now
   end
 end

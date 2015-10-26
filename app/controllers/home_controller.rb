@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-  	@url_count = Url.all.count
+  	@url_count = Url.count
   end
 end
