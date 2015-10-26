@@ -1,0 +1,14 @@
+app_pass:
+  user: "sl"
+  pass: "abcada5"
+
+secret_key_base:
+  key: ""
+
+social_network:
+  facebook:
+    app_id: "1221073641243306"
+    key: "30c9d8fe38bd2ded697a7cd96e3cea95"
+  google:
+    app_id: "781725990897-kdde49o0v6qunonll7443gedg63g54kn.apps.googleusercontent.com"
+    key: "NdY0YU9iNiL17h1ngan5hCnU"
