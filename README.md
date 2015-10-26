@@ -14,6 +14,12 @@ rake db:create
 rake db:migrate
 ```
 
+## Run Test
+
+```
+bundle exec rspec
+```
+
 ## Demo
 https://yuksl.herokuapp.com/
 
@@ -23,6 +29,8 @@ Everyone is encouraged to help improve this project. Here are a few ways you can
 - Fix bugs and submit pull requests
 - Write, clarify, or fix doc
 - Sugges or add new features
+
+NB : Don't forget to create the test for every new feature or fix.
 
 ## New Feature
 To request a new feature just open on issue page

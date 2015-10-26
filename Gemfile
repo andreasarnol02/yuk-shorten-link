@@ -70,11 +70,12 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 group :test do
-  gem 'database_cleaner'
   gem 'shoulda-matchers', require: false
+  gem 'shoulda-callback-matchers'
 end
 
 group :development do

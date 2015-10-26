@@ -1,0 +1,13 @@
+language: ruby
+sudo: false
+cache: bundler
+script: "bundle exec rspec"
+
+env:
+  - DATABASE_ADAPTER=postgresql
+
+rvm:
+  - 2.2.2
+
+gemfile:
+  - gemfiles/4.2.4.gemfile
